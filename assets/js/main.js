@@ -1,4 +1,3 @@
-// Settings users name
 $(function() {
 
     // Checks to see if a users name has been set or not and updates variable is so.
@@ -7,6 +6,9 @@ $(function() {
 
         if(user.name) {
             var name = (user.name);
+            $('title').text("Welcome back " + name + "!");
+        } else {
+            $('title').text("Welcome to Zen!");
         }
 
         $('.user-info__name--show').text(name);
@@ -28,6 +30,7 @@ $(function() {
     chrome.storage.onChanged.addListener(function(){
         chrome.storage.sync.get(['name'], function(user){
             $('.user-info__name--show').text(user.name);
+            $('title').text("Welcome back " + (user.name) + "!");
         });
     });
 
