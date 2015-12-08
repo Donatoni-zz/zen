@@ -1,0 +1,34 @@
+{
+	"manifest_version": 2,
+	"name": "Zen",
+	"description": "A relaxing Chrome tab extension.",
+	"version": "1.0",
+
+	"icons": {
+		"16": "assets/img/icon.png",
+		"48": "assets/img/icon.png",
+		"128": "assets/img/icon.png"
+	},
+
+	"background": { 
+		"scripts": ["assets/js/background.js"]
+	},
+
+	"browser_action": {
+		"default_icon": "assets/img/icon.png",
+		"default_title": "Zen"
+	},
+
+	"permissions": [
+		"tabs",
+		"storage",
+		"cookies",
+		"http://*/*", 
+		"https://*/*",
+		"https://api.instagram.com/"
+	],
+
+	"options_page": "index.html",
+	"content_security_policy": "script-src 'self' https://api.instagram.com; object-src 'self'"
+
+}
