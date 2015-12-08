@@ -401,6 +401,7 @@ div.open-overlay
     width: 74px;
     height: 74px;
     margin: 0 auto;
+    opacity: .3;
 
     cursor: pointer;
     -webkit-transition: all .6s ease 0s;
@@ -410,6 +411,11 @@ div.open-overlay
 
     color: #fff;
     border: solid 4px #fff;
+}
+
+div.open-overlay:hover
+{
+    opacity: 1;
 }
 
 div.open-overlay:hover

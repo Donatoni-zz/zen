@@ -23,14 +23,6 @@ $(window).load(function() {
 	
 	$('.socket').addClass('animated fadeOut');	
 	
-	//PARALLAX
-	$('body').parallax({
-	  scalarX: 25,
-	  scalarY: 15,
-	  frictionX: 0.1,
-	  frictionY: 0.1,
-	});
-	
 	  setTimeout(function() {
 		  $('#prelaoder').addClass('animated fadeOut').fadeOut(2000);	
 	  
@@ -91,7 +83,7 @@ $(document).ready( function(){
  *****************************************************/
 $(document).ready( function(){
 	
-	$('#bg-image').backstretch('assets/img/1.jpg');
+	$.backstretch('assets/img/1.jpg');
 
 });
 
@@ -101,7 +93,7 @@ $(document).ready( function(){
 	function callCanvas (canvas) {
 		
 		// SETTINGS
-		var screenpointSplitt = 10000 
+		var screenpointSplitt = 12000 
 		var movingSpeed = 0.1 
 		
 		var viewportWidth = $(window).width();
@@ -118,11 +110,11 @@ $(document).ready( function(){
 		_this.config = {
 			
 			star: {
-				color: 'rgba(255, 255, 255, 1)'
+				color: 'rgba(255, 255, 255, .8)'
 			},
 			
 			line: {
-				color: 'rgba(255, 255, 255, 1)',
+				color: 'rgba(255, 255, 255, .8)',
 				width: 0.1
 			},
 			
@@ -301,18 +293,6 @@ $(document).ready( function(){
 
 });
 
-$(document).ready( function(){
-	
-	// SET BACKGROUND PARALLAX
-    $('#bg-image').css('transform', 'scale(1.06)');
-    $('#bg-image .backstretch').attr('data-depth', 0.1);
-	$('#bg-image .backstretch').addClass('layer');
-	$('#wrapper_mbYTP_bgndVideo').css('transform', 'scale(1.06)');
-    $('#bg-video').attr('data-depth', 0.1);
-	$('#bg-video').addClass('layer');
-
-});
-
 /**	4. CYCLE
  *****************************************************/
 $(document).ready( function(){
@@ -352,6 +332,11 @@ $(document).ready( function(){
 		$('.overlay .overlay-container').fadeIn('slow');
 		$('.overlay .overlay-container').removeClass('fadeOutDown');
 		$('.overlay .overlay-container').addClass('fadeInUp');
+	}
+
+	function hideStatus() {
+		$('.status-message').text("");
+        $('.status-message').removeClass('fadeInUp');
 	}
 	
 	function showCloseButton() {
@@ -444,6 +429,7 @@ $(document).ready( function(){
 		
 		hideCloseButton();
 		hideOverlayContent();
+		hideStatus();
 		
 		  setTimeout(function() {	 
 			hideOverlay();
@@ -459,7 +445,6 @@ $(document).ready( function(){
 				  }, 1000);
 			  }, 400);
 		  }, 600);
-		  
 	}
 	
 	//FUNCTION CONNECTING OVERLAY CONTACT
@@ -520,46 +505,6 @@ $(document).ready( function(){
 		  				  
 	});
 	
-
-	$('.overlay').bind('mousewheel', function(e) {
-		if(e.originalEvent.wheelDelta / -120 > 0) {
-			//alert('down');
-		} else {
-			
-				procesfinshedOverlay1();
-				function procesfinshedOverlay1() {
-				  if(overlayStatus == 1) {
-					  closeOverlay();
-					  overlayStatus = 0;
-					  statusforGoTo = 0;
-					  
-				  }else {}
-				}
-		  	
-		}
-
-	});
-
-
-	$('#front-page').bind('mousewheel', function(e) {
-		if(e.originalEvent.wheelDelta / 120 > 0) {
-			//alert('up');
-		} else {
-			
-		    preloadprocessfinshed();
-			function preloadprocessfinshed() {
-			  if(activeOverlays == 1) {
-				  openOverlay();
-				  activeOverlays = 0;
-				  
-			  }else {}
-			}
-		  	
-		}
-
-	});
-	
-	
 	
 	//CALL FUNCTION OVERLAY CONTACT
 	$('.open-contact').click(function() {
@@ -573,50 +518,13 @@ $(document).ready( function(){
 		closeOverlayContact();
 		  				  
 	});
-	
-	
-	$('.overlay').bind('mousewheel', function(e) {
-		if(e.originalEvent.wheelDelta / 120 > 0) {
-			//alert('up');
-		} else {
-			
-			processfinshedGoTo();
-			function processfinshedGoTo() {
-			  if(statusforGoTo == 1) {
-				  openOverlayContact();
-				  statusforGoTo = 0;
-				  overlayStatus = 0;
-				  
-			  }else {}
-			}
-		  	
-		}
-
-	});
-	
-	$('.overlay-contact').bind('mousewheel', function(e) {
-		if(e.originalEvent.wheelDelta / -120 > 0) {
-			//alert('down');
-		} else {
-			
-		  	procesfinshedOverlayContact1();
-			function procesfinshedOverlayContact1() {
-			  if(overlayContactStatus == 1) {
-				  closeOverlayContact();
-				  overlayContactStatus = 0;
-				  
-			  }else {}
-			}
-			
-		}
-
-	});
 
 	
 });
 
 /**	6. AJAX SUBSCRIBE
  *****************************************************/
+/*
 $(document).ready( function(){
 	
 	$('.subscribe-form').submit(function() {
@@ -645,6 +553,7 @@ $(document).ready( function(){
 		});
 		
 });
+*/
 
 
 /**	7. AJAX CONTACT
